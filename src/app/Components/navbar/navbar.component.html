@@ -1,0 +1,13 @@
+<div class="navbar">
+    <app-logo />
+    @if(isLogin$ |async)
+    {
+
+        <a  routerLink="" >Home</a>
+
+    }@else{
+        <a routerLink="login">Login</a> 
+        <a routerLink="signup">Signup</a>
+    }
+   
+</div>
