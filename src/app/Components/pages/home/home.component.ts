@@ -6,22 +6,24 @@ import { CategoryImageComponent } from '../../category-image/category-image.comp
 import { NgIf } from '@angular/common';
 import { DishContainerComponent } from '../../dish-container/dish-container.component';
 import { SearchAndAllComponent } from "../../search-and-all/search-and-all.component";
+import { RecipeCardComponent } from "../../recipe-card/recipe-card.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HomeNavbarComponent, CategoryImageComponent, NgIf, DishContainerComponent, SearchAndAllComponent],
+  imports: [HomeNavbarComponent, CategoryImageComponent, NgIf, DishContainerComponent, SearchAndAllComponent, RecipeCardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
 
- recipes :any;
- isLoading=false;
- private homeService= inject(HomeService)
+  isLoading=false;
+  private homeService= inject(HomeService)
+  recipes =this.homeService.recipes;
  categoryObj:any[]=[];
  dishsImages:any[]=[]
  private destroyRef=inject(DestroyRef)
+ paginatedRecipe=5
 ngOnInit(): void {
   this.isLoading=true
  const subscription =  this.homeService.getAllRecipes()
@@ -40,5 +42,12 @@ ngOnInit(): void {
       this.destroyRef.onDestroy(()=>subscription.unsubscribe())
 }
 
+increaseRecipe(){
+  if(this.paginatedRecipe<=this.recipes().length-5){
+    this.paginatedRecipe+=5
+  }else{
+    this.paginatedRecipe=this.recipes().length
+  }
+}
   
 }

@@ -1,7 +1,8 @@
-<img src="" alt="">
+<img [src]="recipe().image" alt="">
 <div class="details">
-    <div>{{recipe().date}}</div>
-    <div>{{recipe().title}}</div>
-    <div>{{recipe().description}}</div>
-    <div><a [routerLink]="['recipe',recipe().id]">Continue Reading</a></div>
+    <div  class="level"  style="color:#cf23b1;">{{recipe().cuisine}}</div>
+    <div class="title">{{recipe().title}}</div>
+    <div class="level" [ngStyle]="{color:recipe().difficulty==='Easy'?'green':recipe().difficulty==='Difficult'?'red':'blue'}">{{recipe().difficulty}}</div>
+    <div><a [routerLink]="['recipe',recipe().id]">Continue Reading »</a></div>
 </div>
+
