@@ -3,11 +3,12 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideStore } from '@ngrx/store';
-import { loginReducer } from './Store/login.reducer';
 import { provideHttpClient } from '@angular/common/http';
+import { userReducer } from './Store/login.reducer';
+import { provideEffects } from '@ngrx/effects';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),provideHttpClient(), provideStore({
-    login:loginReducer
-  })]
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideHttpClient(), provideStore({
+        login: userReducer
+    }), provideEffects()]
 };

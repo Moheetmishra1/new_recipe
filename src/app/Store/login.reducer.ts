@@ -1,5 +1,17 @@
-import { createReducer } from "@ngrx/store";
+import { createReducer, on } from "@ngrx/store";
 import { USERTYPE } from "../shared/UserType";
+import { loginUser, logoutUser } from "./login.action";
 
-const initialState :USERTYPE|null = null
-export const loginReducer=createReducer(initialState)
+    const initialState:null|USERTYPE = null
+
+
+    export const userReducer = createReducer<USERTYPE|null>(
+        initialState,
+        on(loginUser,(state,action)=>{console.log(action);
+        ;return action.user}),
+        on(logoutUser,()=> null)
+    );  
+  
+// export function userReducer (state=initialState,action){
+//     return state
+// }

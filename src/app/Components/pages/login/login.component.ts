@@ -4,6 +4,9 @@ import { FormControl, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Valid
 import { NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { loginUser } from '../../../Store/login.action';
+import { USERTYPE } from '../../../shared/UserType';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +21,7 @@ export class LoginComponent {
   private httpClient= inject(HttpClient)
   private destoryRef= inject(DestroyRef)
   private router = inject(Router)
-  
+  private store = inject(Store)
   eee=''
   get authenticationError(){
     return this.eee
@@ -26,7 +29,7 @@ export class LoginComponent {
 
   onSubmit(formData:NgForm){
     this.eee=''
-    console.log(formData.form.value);
+    console.log(formData.form.value.email,formData.form.value.password);
     this.submitError.set("")
 
     setTimeout(()=>
@@ -35,7 +38,7 @@ export class LoginComponent {
         ,2000) 
     
     if(!(formData.value.email && formData.value.password)){
-      this.submitError.set("All fields are mandatory.")
+      this.submitError.set("All field are mandatory.")
       return ;
     }
     
@@ -44,16 +47,19 @@ export class LoginComponent {
       return ;
     }
 
-    const subscription = this.httpClient.post('https://dummyjson.com/auth/login',{
-                username: 'emilys',
-                password:'emilyspass',
+    const subscription = this.httpClient.post<USERTYPE>('https://dummyjson.com/auth/login',{
+                // username: 'emilys',
+                // password:'emilyspass',
+                username:formData.form.value.email,
+                password:formData.form.value.password,
                 expiresInMins:30
         })
         .subscribe({
           next:(data)=>{
             console.log(data);
-            
-            window.sessionStorage.setItem('token',JSON.stringify(data));
+            let token= {accessToken:data.accessToken,refreshToken:data.refreshToken}
+            this.store.dispatch(loginUser({ user:data }))
+            window.sessionStorage.setItem('token',JSON.stringify(token));
             console.log("login user's name set" , formData.form.value.email);
             
            
@@ -61,7 +67,7 @@ export class LoginComponent {
             this.router.navigate(['../'])
           },
           error:(err)=>{
-            this.eee=err.error
+            this.eee=err.error.message
             console.log(err);
             
           }

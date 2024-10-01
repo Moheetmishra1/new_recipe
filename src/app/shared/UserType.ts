@@ -7,6 +7,6 @@ export interface USERTYPE {
     lastName: string,
     gender: string,
     image: string,
-    accessToken: string, // JWT accessToken (for backward compatibility) in response and cookies
-    refreshToken: string // refreshToken in response and cookies
+    accessToken: string, 
+    refreshToken: string 
   }

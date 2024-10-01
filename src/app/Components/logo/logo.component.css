@@ -9,6 +9,10 @@ div{
     background-color: #aa96da;
     border-radius: 9%;
     max-width: max-content;
+    height: 2em;
+    margin-left: 0.4em;
+    width: 12em;
+    padding: 2px 4px 2px 4px;
     display: flex;
     justify-content: center;
     align-items: center;
