@@ -15,6 +15,22 @@ import { RouterLink } from '@angular/router';
 })
 export class SignUpComponent  {
   imagesProperty=images
-  
+  index=0
+  updateSlide(opt:string){
+    if(opt==='prev'){
+      if(this.index===0){
+          this.index=this.imagesProperty.length-1
+        }else{
+          this.index -=1
+        }
+    }else{
+
+      if(this.index >= this.imagesProperty.length-1){
+        this.index=0
+      }else{
+        this.index +=1
+      }
+    }
+  }
   
 }

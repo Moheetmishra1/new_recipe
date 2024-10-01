@@ -35,47 +35,20 @@
                   </div>
                 </div>
               </div>
-  
               <div class="form-group">
-                <label for="address">Address:</label>
-                <div class="row">
-                  <div class="col-md-6">
-                    <input type="text" formControlName="city" class="form-control input-error" id="city" required>
-                    <label for="city">City:</label>
-                  </div>
-                  <div class="col-md-6">
-                    <input type="text" formControlName="street" class="form-control input-error" id="street" required>
-                    <label for="street">Street:</label>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-4">
-                    <input type="number" formControlName="number" class="form-control input-error" id="number" required>
-                    <label for="number">Number:</label>
-                  </div>
-                  <div class="col-md-4">
-                    <input type="text" formControlName="zipcode" class="form-control input-error" id="zipcode" required>
-                    <label for="zipcode">Zipcode:</label>
-                  </div>
-                  <div class="col-md-4">
-                    <label for="geolocation">Geolocation:</label>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <input type="text" formControlName="lat" class="form-control input-error" id="lat" required>
-                        <label for="lat">Latitude:</label>
-                      </div>
-                      <div class="col-md-6">
-                        <input type="text" formControlName="long" class="form-control input-error" id="long" required>
-                        <label for="long">Longitude:</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <label for="">Gender:</label>
+                <select  formControleName="gender">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+               
               </div>
+             
   
               <div class="form-group">
-                <label for="phone">Phone:</label>
-                <input type="tel" formControlName="phone" class="form-control input-error" id="phone" required>
+                <label for="image">Image:</label>
+                <input type="text" formControlName="image" class="form-control input-error" id="image" required>
               </div>
   
               <button type="submit" class="btn btn-primary btn-block">Sign up</button>

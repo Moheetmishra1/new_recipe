@@ -1,7 +1,9 @@
 body{
     background-color: #23527c;
 }
-
+:host{
+  width: 90%;
+}
 .container {
     margin-top: 50px;
     background-image: linear-gradient(to bottom, #f7f7f7, #fff);

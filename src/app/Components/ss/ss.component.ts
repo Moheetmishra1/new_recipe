@@ -22,17 +22,11 @@ mohit="mohit";
         firstname: new FormControl('', [Validators.required,Validators.pattern('[a-zA-Z]+')]),
         lastname: new FormControl('', [Validators.required,Validators.pattern('[a-zA-Z]+')])
       }),
-      address: new FormGroup({
-        city: new FormControl('', Validators.required),
-        street: new FormControl('', Validators.required),
-        number: new FormControl('', Validators.required),
-        zipcode: new FormControl('', Validators.required),
-        geolocation: new FormGroup({
-          lat: new FormControl('', Validators.required),
-          long: new FormControl('', Validators.required)
-        })
-      }),
-      phone: new FormControl('', Validators.required)
+      gender:new FormControl('', 
+        [Validators.required]
+      ),
+      
+      image: new FormControl('', Validators.required)
     });
   }
 

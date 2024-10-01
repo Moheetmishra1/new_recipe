@@ -2,19 +2,20 @@
     <div class="formAllBox">
 
         <header class="headerImage">
-            <img [src]="imagesProperty[1].path" [height]="imagesProperty[1].height+'em'" alt="not found" />
+            <img [src]="imagesProperty[index].path" [height]="imagesProperty[index].height+'em'" alt="not found" />
            <div class="header-above">
             <app-logo />
             <div class="header-sec3">
                 <p>Join us and start shopping in style</p>
                 <span> 
-                <a routerLink="/login">   <button>Login</button></a>
+                <a routerLink="/login">   <button class="login">Login</button></a>
                 </span>
             </div>  
            </div>
 
-           <div class="header-above">
-            <button>«</button><button>»</button>
+           <div class="buttonSliders">
+            <button (click)="updateSlide('prev')">«</button>
+            <button (click)="updateSlide('next')">»</button>
            </div>
         </header>
         <app-ss />
