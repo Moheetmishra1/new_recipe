@@ -48,10 +48,10 @@ export class LoginComponent {
     }
 
     const subscription = this.httpClient.post<USERTYPE>('https://dummyjson.com/auth/login',{
-                // username: 'emilys',
-                // password:'emilyspass',
-                username:formData.form.value.email,
-                password:formData.form.value.password,
+                username: 'emilys',
+                password:'emilyspass',
+                // username:formData.form.value.email,
+                // password:formData.form.value.password,
                 expiresInMins:30
         })
         .subscribe({
@@ -59,12 +59,14 @@ export class LoginComponent {
             console.log(data);
             let token= {accessToken:data.accessToken,refreshToken:data.refreshToken}
             this.store.dispatch(loginUser({ user:data }))
+            console.log("login",token);
+            
             window.sessionStorage.setItem('token',JSON.stringify(token));
             console.log("login user's name set" , formData.form.value.email);
             
            
             
-            this.router.navigate(['../'])
+            this.router.navigate(['/'])
           },
           error:(err)=>{
             this.eee=err.error.message

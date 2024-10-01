@@ -1,1 +1,29 @@
-<p>home works!</p>
+<div class="body" >
+
+    <app-home-navbar />
+    <div class="belowNavbar">
+        Simple recipes made for <span class="text-design">𝓉𝓇𝑒𝒶𝓁 , 𝒶𝒸𝓉𝓊𝒶𝓁 , 𝑒𝓋𝑒𝓇𝓎𝒹𝒶𝓎 𝓁𝒾𝒻𝑒.</span>.
+    </div>
+
+    @if(isLoading){
+        <h2 style="text-align: center;">Page is loading.....😋😊</h2>
+    }
+
+    <div class="category-item">
+    @for(item of categoryObj; track item.image){
+       <app-category-image [obj]="item" />
+        }
+    </div>
+    <!-- <div *ngIf="let item of dishsImages">{{item[0]}}</div> -->
+     <div class="dishContainer">
+    @for(item of dishsImages;track item[0]){
+       <app-dish-container [title]="item[0]" [arr]="item[1]" />
+    }
+    </div>
+
+    <app-search-and-all />
+
+
+    
+
+</div>

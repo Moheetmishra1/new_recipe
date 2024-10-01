@@ -1,0 +1,35 @@
+:host{
+    height: 450px;
+    width:  300px;
+    position: relative;
+    margin: 0px 5px;
+}
+
+:host>div{
+    position: relative;
+    z-index: 1;
+    top: -0.6em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* display: block; */
+    
+    margin: 0 auto;
+}
+
+p{
+    font-weight: 500;
+    /* margin: 0 auto; */
+    background-color:#edb654;
+    padding: 0.5em;
+    color: rgb(255, 254, 254);
+    letter-spacing: 0.2em;
+    font-weight: 500;
+    box-shadow: 1px 1px 6px 1px black;
+    font-family:Arial, Helvetica, sans-serif ;
+}
+img{
+
+    height: 100%;
+    width: 100%;
+}

@@ -1,0 +1,95 @@
+.navBox{
+    /* height: 2em; */
+    padding: 2em;
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+    border-bottom: 1px solid white;
+
+}
+
+.navBox>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    /* border: 1px solid black; */
+}
+
+.navLink:active ,.navLink:visited{
+/* color: black; */
+text-decoration:none;
+
+text-shadow: 1px 4px 1px black;
+}
+.navLink{
+    font-size: 1.5em;
+    text-decoration: none;
+    font-weight: 600;
+    text-decoration:none;
+    color: black;
+text-shadow: 1px 1px 1px black;
+}
+.profile-box{
+    position: relative;
+    /* height: 100px; */
+    border: 1px solid black;
+    /* width: 100px; */
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 50%;
+}
+
+
+.profile-img{
+    border-radius: 50%;
+    height: 95%;
+    overflow: hidden;
+
+    margin: 0 auto;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+      position: relative;
+}
+.profile-img img{
+    height: 150%;
+    width: 150%;
+}
+ul{
+    position: absolute;
+    top: 2em;
+    left: -5em;
+    list-style-type: none;
+    text-align: start;
+    width: 180px;
+    background-color: rgba(255, 255, 255, 0.726);
+    z-index: 2;
+    gap: 0.5em;
+    display: flex;
+    font-size: 0.8em;
+    border-radius: 1em;
+    border: none;
+    flex-direction: column;
+color: black;
+    align-items: start;
+    /* border: 2px solid black; */
+}
+li>a{
+    font-size: 1em;
+}
+li a:active ,li a:visited{
+    color: black  !important;
+}
+
+li>button{
+    border: none;
+    font-size: 1.6em;
+    font-weight: 600;
+    color: red;
+   
+}
+li img{
+    height: 1em;
+    width: 0.8em;
+}
