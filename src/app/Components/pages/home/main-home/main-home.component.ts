@@ -38,6 +38,7 @@ export class MainHomeComponent implements OnInit {
 
 ngOnInit(): void {
   this.isLoading=true
+  if(!this.homeService.recipes().length){
  const subscription =  this.homeService.getAllRecipes()
       .subscribe({
         next:()=>{this.recipesByCuisine=this.homeService.recipesByCuisine();
@@ -47,6 +48,12 @@ ngOnInit(): void {
         complete:()=> this.isLoading=false
       })
       this.destroyRef.onDestroy(()=>subscription.unsubscribe())
+    }{
+      this.recipesByCuisine=this.homeService.recipesByCuisine();
+      this.recipesByTag=Object.entries(this.homeService.recipesByTag())  ;
+      this.isLoading=false;
+
+    }
 }
 
 increaseRecipe(){
