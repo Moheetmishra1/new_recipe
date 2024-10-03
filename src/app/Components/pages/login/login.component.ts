@@ -63,7 +63,8 @@ export class LoginComponent {
             
             window.sessionStorage.setItem('token',JSON.stringify(token));
             console.log("login user's name set" , formData.form.value.email);
-            
+            let {id,username,email,firstName,lastName,image,gender} = data
+            window.sessionStorage.setItem('user',JSON.stringify({id,username,email,firstName,lastName,image,gender}))
            
             
             this.router.navigate(['/'])

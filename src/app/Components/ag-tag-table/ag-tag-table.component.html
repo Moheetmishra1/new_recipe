@@ -1,17 +1,8 @@
 
-
-
-   <ng-template #loading >
-
-    <div style="color: blue; text-align: center;" >Loading..........</div>
-
-
-   </ng-template>
-
-
-   <div class="tagsBox" *ngIf="!isLoading ;loaading" >
-    <!-- <ag-grid-angular [rowData]="tags()" [columnDefs]="colDefs" style="height: 900px;width: 200px;;" ></ag-grid-angular> -->
      
-
-<p>{{tags().length}}</p>
-   </div>
+            <ag-grid-angular [rowData]="allCarts()" [columnDefs]="colum" style="height: 400px;width: 900px; margin: 100px auto; color: black;"
+    [pagination]="true"
+    ></ag-grid-angular>
+  
+   
+<!-- <p>{{filterCart().length}}</p> -->

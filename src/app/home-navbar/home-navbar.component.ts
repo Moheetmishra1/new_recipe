@@ -18,12 +18,17 @@ import { logoutUser } from '../Store/login.action';
 export class HomeNavbarComponent {
   isVisibile=signal<boolean>(false);
   imagepath=''
+  userAll:any
+  id=0
   user$ =signal<Observable<USERTYPE | null>|undefined>(undefined)
   constructor(private store:Store<{login:USERTYPE|null}>,private router:Router){
     this.user$.set(this.store.select('login'))
     this.user$()?.subscribe((val)=>{
-      if(val)
-      this.imagepath=val?.image
+      if(val){
+        this.id=val.id;
+        this.imagepath=val?.image
+      }
+
     })
   }
 

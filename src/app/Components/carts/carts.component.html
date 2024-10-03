@@ -1,0 +1,33 @@
+
+
+
+        <div class="wrapper">
+            <app-carts-header [cartId]="id()" />
+            <app-carts-notification />
+            <app-carts-table />
+             <thead _ngcontent-ng-c525090438="">
+      <tr _ngcontent-ng-c525090438="">
+        <th
+          _ngcontent-ng-c525090438=""
+          scope="col"
+          class="text-uppercase header"
+        >
+          item
+        </th>
+        <th _ngcontent-ng-c525090438="" scope="col" class="text-uppercase">
+          Quantity
+        </th>
+        <th _ngcontent-ng-c525090438="" scope="col" class="text-uppercase">
+          price each
+        </th>
+        <th _ngcontent-ng-c525090438="" scope="col" class="text-uppercase">
+          total
+        </th>
+      </tr>
+    </thead>
+            <app-carts-item  *ngFor=" let product of allproduct()" [cartId]="id()" [product]="product"/>
+            <app-carts-total />
+
+            
+          </div> 
+

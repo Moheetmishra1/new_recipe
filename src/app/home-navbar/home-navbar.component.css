@@ -94,3 +94,21 @@ li img{
     height: 1em;
     width: 0.8em;
 }
+
+.card{
+    color: white;
+    background-color:#419d41;
+    background-image: linear-gradient(to right,#419d41,#2c752c);
+    height: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1em;
+
+}
+
+.card>div{
+    color: white;
+    padding: 0.2em;
+    font-size: 1.5em;
+}

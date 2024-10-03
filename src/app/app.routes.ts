@@ -10,6 +10,9 @@ import { RecipesComponent } from './Components/pages/home/recipes/recipes.compon
 import { AllrecipesComponent } from './Components/pages/allrecipes/allrecipes.component';
 import { UpdateRecipeComponent } from './Components/pages/update-recipe/update-recipe.component';
 import { AddRecipeComponent } from './Components/pages/add-recipe/add-recipe.component';
+import { UserDetailsComponent } from './Components/user-details/user-details.component';
+import { CartsComponent } from './Components/carts/carts.component';
+import { AgTagTableComponent } from './Components/ag-tag-table/ag-tag-table.component';
 
 const gaurdForHome:CanActivateFn=(route,segments)=>{
      const router = inject(Router)   
@@ -71,7 +74,18 @@ export const routes: Routes = [
                 component:RecipesComponent
 
             },
-            
+            {
+                path:'user/:id',
+                component:UserDetailsComponent
+            },
+            {
+                path:'carts/:id',
+                component:CartsComponent
+            }
+            ,{
+                path:'agGrid',
+                component:AgTagTableComponent
+            }
             
         ]
     },

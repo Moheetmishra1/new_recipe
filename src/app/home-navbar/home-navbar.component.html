@@ -6,18 +6,20 @@
         <div><a routerLink="/" class="navLink">Home</a></div>
         <div><a routerLink="/allrecipes" class="navLink" >Recipes</a></div>
         <div><a routerLink="/addRecipe" class="navLink" >Add Recipe</a></div>
-        <div>
-                        <div class="navLink">Card</div>
+        <a [routerLink]="['carts',id]">
+        <div class="card">
+                      <div >Card 🛒 </div>
         </div>
+    </a>
         <div class="profile-box"  (click)="OnVisible()">
             <div class="profile-img"  >
-                <img [src]="imagepath"  alt="no image">
+                <img [src]="imagepath"  alt="no">
                
             </div>
             <ul *ngIf="isVisibile()" >
-                <li><a [routerLink]="['user',1,'details']" style="color: black;">Profile  </a> </li>
-                <li><a routerLink="">All Users</a></li>
-                <li><a routerLink="">New Product</a></li>
+                <li><a [routerLink]="['user',1]" style="color: black;">Profile  </a> </li>
+                <li><a routerLink="">All Carts</a></li>
+                <li><a routerLink="/addRecipe">Add Recipe</a></li>
                 <li><button (click)="logout()">logout <img src="assets/switch.png" alt=""></button></li>
             </ul>
         </div>

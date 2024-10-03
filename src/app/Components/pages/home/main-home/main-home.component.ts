@@ -6,7 +6,6 @@ import { DishContainerComponent } from '../../../dish-container/dish-container.c
 import { SearchAndAllComponent } from '../../../search-and-all/search-and-all.component';
 import { RecipeCardComponent } from '../../../recipe-card/recipe-card.component';
 import { HomeNavbarComponent } from '../../../../home-navbar/home-navbar.component';
-import { AgTagTableComponent } from '../../../ag-tag-table/ag-tag-table.component';
 import { TagsTableComponent } from "../../../tags-table/tags-table.component";
 import { RouterLink } from '@angular/router';
 import { NavigateWrapperComponent } from "../../../navigate-wrapper/navigate-wrapper.component";
@@ -17,7 +16,7 @@ import { NavigateWrapperComponent } from "../../../navigate-wrapper/navigate-wra
   selector: 'app-main-home',
   standalone: true,
   imports: [HomeNavbarComponent, CategoryImageComponent, NgIf, DishContainerComponent, SearchAndAllComponent,
-     RecipeCardComponent, AgTagTableComponent, TagsTableComponent, RouterLink,
+     RecipeCardComponent, TagsTableComponent, RouterLink,
       NavigateWrapperComponent],
   templateUrl: './main-home.component.html',
   styleUrl: './main-home.component.css'

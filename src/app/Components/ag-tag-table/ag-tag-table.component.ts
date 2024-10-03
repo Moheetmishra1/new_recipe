@@ -1,61 +1,70 @@
-import { HttpClient } from '@angular/common/http';
-import { AgGridTagService } from './ag-grid.service';
-import { Component, computed, DestroyRef, inject, OnInit } from '@angular/core';
+import { ColDef } from 'ag-grid-community';
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-quartz.css';
+import { Component, inject, OnInit, DestroyRef, computed, signal } from '@angular/core';
 import { NgIf } from '@angular/common';
-import { ColDef } from 'ag-grid-community'
-import {AgGridModule} from "ag-grid-angular"
+import {AgGridAngular} from "ag-grid-angular"
+import { AgGridTagService } from './ag-grid.service';
+import { CartResponseTYPE } from './AllCartsType';
 
 @Component({
   selector: 'app-ag-tag-table',
   standalone: true,
-  imports: [NgIf, AgGridModule],
+  imports: [NgIf,AgGridAngular],
   templateUrl: './ag-tag-table.component.html',
   styleUrl: './ag-tag-table.component.css'
 })
 export class AgTagTableComponent implements OnInit {
 
-  isLoading:boolean= false;
-  private agGridTagService= inject(AgGridTagService);
+  isLoading= false
+  agGridService= inject(AgGridTagService)
   private destroyRef= inject(DestroyRef)
-  tags=computed(()=>this.agGridTagService.tags().map(a=>{return {Tag:a}}))  ;
+  allCarts =signal<CartResponseTYPE[]>([])
+ 
 
-  // rowData = [
-  //   { make: "Tesla", model: "Model Y", price: 64950, electric: true },
-  //   { make: "Ford", model: "F-Series", price: 33850, electric: false },
-  //   { make: "Toyota", model: "Corolla", price: 29600, electric: false },
-  // ];
-
-  // rowData = this.tags().map(a=>{ console.log(a);
-  //  return  {Tag:a,model:a,price:a,electric:a}});
-
-  // colDefs:ColDef[] =  [{field:'Tag'}];
-
-  
-  rowData = [
-    { make: "Tesla"},
-    { make: "Ford" },
-    { make: "Toyota" },
+  colum: ColDef[] = [
+    { field: 'id', headerName: 'ID' },
+    { field: 'title', headerName: 'Title' },
+    { field: 'price', headerName: 'Price' },
+    { field: 'quantity', headerName: 'Quantity' },
+    { field: 'total', headerName: 'Total' },
+    // {
+    //   field: 'actions',
+    //   headerName: 'Actions',
+    //   cellRenderer: (params) => {
+    //     return `
+    //       <button class="btn btn-primary" (click)="updateProduct(${params.data.id})">Update</button>
+    //       <button class="btn btn-danger" (click)="deleteProduct(${params.data.id})">Delete</button>
+    //       <button class="btn btn-info" (click)="viewProduct(${params.data.id})">View</button>
+    //     `;
+    //   },
+    // },
   ];
-  colDefs: ColDef[] = [
-    { field: "make" },
-   
-  ];
-  
-
 
   ngOnInit(){
-    this.isLoading=true;
-    const subscription = this.agGridTagService.recipesByTags()
+    this.isLoading= true;
+const subscription = this.agGridService.getAllCarts()
       .subscribe({
-        error:(err)=>{
-          console.log(err);          
+        next:(data)=>{
+          let obj = data.map(a=>{ return a
+            return {id:a.carts.id,title:a.carts.products.title,price:a.carts.products.price,quantity:a.carts.products.quantity,total:a.total}
+          })
+          console.log(obj);
+          
+          // this.allCarts.set(obj);
+          console.log(this.allCarts());
+          
         },
-        complete:()=>{
-          console.log('Fetching completed');
-          this.isLoading=false
+        error:(err)=>{
+          console.log("Error is ",err);          
+        }
+        ,complete:()=>{
+          console.log("completed");
+          this.isLoading= false
         }
       });
       this.destroyRef.onDestroy(()=>subscription.unsubscribe())
   }
+
 
 }

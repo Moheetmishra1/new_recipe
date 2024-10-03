@@ -1,21 +1,29 @@
+import { ColDef } from 'ag-grid-community';
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable, signal } from "@angular/core";
 import { tap } from "rxjs";
+import { CartResponseTYPE } from "./AllCartsType";
 
 @Injectable({
     providedIn:'root',
 })
 
 export class AgGridTagService{
-    tags=signal<string[]>([])
+    allCarts=signal<CartResponseTYPE[]>([])
 
   private httpClient = inject(HttpClient)
 
-    recipesByTags(){
-        return this.httpClient.get<string[]>('https://dummyjson.com/recipes/tags').pipe(
+    getAllCarts(){
+        return this.httpClient.get<CartResponseTYPE[]>('https://dummyjson.com/carts').pipe(
             tap({
-                next:(tagsData)=>this.tags.set(tagsData)
+                next:(tagsData)=>{
+                    console.log(tagsData);
+                    
+                    this.allCarts.set(tagsData)
+                }   
             })
         )
     }
+
+   
 }
