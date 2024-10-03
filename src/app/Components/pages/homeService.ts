@@ -12,6 +12,7 @@ export class HomeService{
 
     recipes= signal<RECIPESTYPE[]>([])
     httpClient= inject(HttpClient)
+    recipe =signal<RECIPESTYPE|undefined>(undefined)
 
     recipesByCuisine(){
         const cate:any[]=[]
@@ -24,6 +25,15 @@ export class HomeService{
         })
         return cate
     }
+    getSingleRecipe(id:string){
+        return this.httpClient.get<RECIPESTYPE>(`https://dummyjson.com/recipes/${id}`).
+        pipe(
+            tap({
+                next:(Data)=>this.recipe.set(Data)
+            })
+        )
+    }
+
 
     getAllRecipes(){
         return this.httpClient.get<{recipes:RECIPESTYPE[],}>('https://dummyjson.com/recipes')
@@ -51,6 +61,9 @@ export class HomeService{
             return a
         },dishs);
         return obj
+    }
+    addRecipe(recipe:any){
+        this.recipes.update(data=>[...data,recipe])
     }
 
     updateRecipe(recipe:any){

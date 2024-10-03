@@ -3,6 +3,7 @@ import { HomeService } from './../pages/homeService';
 import { Component, inject, input, output } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RECIPESTYPE } from '../pages/pages-helper';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'update-recipe-form',
@@ -14,8 +15,10 @@ import { RECIPESTYPE } from '../pages/pages-helper';
 })
 export class UpdateRecipeFormComponent  {
   dataPass= input<any>()
-  hideForm= output<void>()
+  // hideForm= output<void>()
+  title=input<string>('')
   private homeService= inject(HomeService)
+  private router= inject(Router)
   
     recipeForm:any = new FormGroup({
       name: new FormControl(this.dataPass()?.name, Validators.required),
@@ -41,19 +44,39 @@ export class UpdateRecipeFormComponent  {
       // const obj = {...this.dataPass()}
 
       this.recipeForm.setValue(this.dataPass())
-      }
+      }  
     }
   
 
   onSubmit(): void {
+    if(this.title() ==='update'){
     console.log(this.recipeForm?.value);
     if(this.recipeForm.valid){
-    const obj ={...this.dataPass(),...this.recipeForm.value}
+    const obj ={...this.dataPass(),...this.recipeForm.form.value}
     this.homeService.updateRecipe(obj)
-    this.hideForm.emit()
+    // this.hideForm.emit()
+    console.log("Updated");
+    
+    this.router.navigate(['/'])
+
+
+    }}""
+    else{
+      if(this.recipeForm.valid){
+        const rand= Math.floor(Math.random()*1000)
+        this.recipeForm.form.value={...this.recipeForm.form.value,id:rand}
+        console.log(this.recipeForm);
+        
+        console.log(this.recipeForm.form.value);
+        
+      this.homeService.addRecipe(this.recipeForm.form.value);
+    console.log("Added");
+
+      this.router.navigate(['/'])
+      }
     }
   }
   formHide(){
-    this.hideForm.emit()
+    // this.hideForm.emit()
   }
 }

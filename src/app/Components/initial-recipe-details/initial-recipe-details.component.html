@@ -1,9 +1,12 @@
 <div class="card">
 <main>
-    
+<div class="imageBox">
         <img [src]="details().image" alt="">
-    
-
+    <nav>
+        <button class="update" (click)="update()">Update</button>
+        <button class="delete" (click)="deleteRecipe()">Delete</button>
+    </nav>
+    </div>
     <div class="details">
         <div class="star">{{star()}}</div>
         <div class="reviews">{{details().reviewCount}} REVIEWS/{{details().rating}} AVERAGE</div>

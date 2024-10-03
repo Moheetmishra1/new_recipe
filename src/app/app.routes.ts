@@ -9,6 +9,8 @@ import { RecipeComponent } from './Components/pages/home/recipe/recipe.component
 import { MainHomeComponent } from './Components/pages/home/main-home/main-home.component';
 import { RecipesComponent } from './Components/pages/home/recipes/recipes.component';
 import { AllrecipesComponent } from './Components/pages/allrecipes/allrecipes.component';
+import { UpdateRecipeComponent } from './Componenets/pages/update-recipe/update-recipe.component';
+import { AddRecipeComponent } from './Componenets/pages/add-recipe/add-recipe.component';
 
 const gaurdForHome:CanActivateFn=(route,segments)=>{
      const router = inject(Router)   
@@ -45,7 +47,16 @@ export const routes: Routes = [
             },
             {
                 path:'home',
-                component:MainHomeComponent
+                component:MainHomeComponent,
+                
+            },
+            {
+                path:'update/:id',
+                component:UpdateRecipeComponent
+            },
+            {
+                path:'addRecipe',
+                component:AddRecipeComponent
             },
             {
                     path:'allrecipes',

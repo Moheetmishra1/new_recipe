@@ -33,6 +33,7 @@ img{
     /* height: 30vh; */
     height: 36vh;   
     width: 100%;
+    position: relative;
 }
 
 main>div{
@@ -49,4 +50,43 @@ main>div{
     font-size: 1.5em;
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.imageBox{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+nav{
+    position: absolute;
+    height: 20%;
+    bottom: 0%;
+    /* padding: 2em 0; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgba(107, 104, 104, 0.755);
+}
+
+button{
+    border: none;
+    background-color: rgba(255, 255, 255, 0.778);
+    height: 1.5em;
+    padding: 2px 5px;
+    border-radius: 2px;
+
+}
+
+.update{
+    color: green;
+}
+
+.delete{
+    color: red;
+}
+
+button:hover{
+    transform: scale(1.2);
 }
