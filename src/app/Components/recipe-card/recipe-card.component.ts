@@ -1,6 +1,7 @@
 import { NgStyle } from '@angular/common';
-import { Component, input } from '@angular/core';
-import {  RouterLink } from '@angular/router';
+import { Component, inject, input, output } from '@angular/core';
+import {   RouterLink } from '@angular/router';
+import { HomeService } from '../pages/homeService';
 interface CardRecipeType {
   title:string,
   image:string,
@@ -21,7 +22,19 @@ interface CardRecipeType {
 })
 export class RecipeCardComponent {
   recipe=input.required<CardRecipeType>()
-  ngOnInit(){
+  homeService= inject(HomeService)
+  openForm= output<number>()
+  updateRecipe(){
+    this.openForm.emit(this.recipe().id)
+    console.log("enter to recipe item");
+    
+  }
 
+  forForm(){
+    this.openForm.emit(this.recipe().id)
+  }
+
+  deleteRecipe(){
+    this.homeService.deleteRecipe(this.recipe().id)
   }
 }

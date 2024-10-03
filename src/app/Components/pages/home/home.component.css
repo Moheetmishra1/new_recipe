@@ -1,48 +1,6 @@
 .body{
     background-color: #ff8a0082;
+    /* width: 100vw; */
 }
 
-.belowNavbar{
-    padding: 2em;
-    color: black;
-    font-weight: 600;
-    text-align: center;
-    text-transform: uppercase;
-}
-.text-design{
-    font-size: 2em;
-    color: purple;
-    font-weight: 400;
-}
 
-.category-item{
-    height: 550px;
-    display: flex;
-    flex-wrap:wrap;
-    padding: 1em;
-    flex-direction: column  ;
-    /* justify-content: space-around; */
-    gap: 20px;
-    overflow:scroll;
-    overflow-y: hidden;
-    
-    /* border: 2px solid purple; */
-}
-
-.dishContainer{
-    width: 80vw;
-    height: 20vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 2em;
-    margin: 2em auto;
-    /* background-color: rgb(252, 242, 242); */
-    overflow-y:scroll ;
-}
-.viewMore{
-    display: flex;
-    justify-content: center;
-    /* margin: 1em ; */
-    padding-bottom: 2em;
-}

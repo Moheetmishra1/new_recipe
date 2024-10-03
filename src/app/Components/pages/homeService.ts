@@ -13,8 +13,7 @@ export class HomeService{
     recipes= signal<RECIPESTYPE[]>([])
     httpClient= inject(HttpClient)
 
-    getAllCategoriesImage(){
-        // const cate:{cuisine:string,image:string}[]|[]=[]
+    recipesByCuisine(){
         const cate:any[]=[]
 
         this.recipes().forEach(recipe=>{
@@ -35,9 +34,10 @@ export class HomeService{
                     console.log(recipesData);
                     
                     this.recipes.set(recipesData)
-                }           })        )    }
+                }           })        )   
+             }
 
-    getAllDish(){
+    recipesByTag(){
         const dishs:any={};
         const obj = this.recipes().reduce((a,b)=>{
             b.tags.forEach(typeDish=>{
@@ -51,6 +51,20 @@ export class HomeService{
             return a
         },dishs);
         return obj
+    }
+
+    updateRecipe(recipe:any){
+        this.recipes.update((data)=>data.map(a=>{
+            if(a.id=== recipe.id){
+                return recipe
+            }else{
+                return a;
+            }
+        }))
+    }
+
+    deleteRecipe(id:number){
+        this.recipes.update((recipe)=>recipe.filter(a=>a.id !== id))
     }
 
 }

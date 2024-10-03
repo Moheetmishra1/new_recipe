@@ -5,6 +5,10 @@ import { PnFComponent } from './Components/pages/pn-f/pn-f.component';
 import { SignUpComponent } from './Components/pages/signup/signup.component';
 import { inject } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { RecipeComponent } from './Components/pages/home/recipe/recipe.component';
+import { MainHomeComponent } from './Components/pages/home/main-home/main-home.component';
+import { RecipesComponent } from './Components/pages/home/recipes/recipes.component';
+import { AllrecipesComponent } from './Components/pages/allrecipes/allrecipes.component';
 
 const gaurdForHome:CanActivateFn=(route,segments)=>{
      const router = inject(Router)   
@@ -31,8 +35,39 @@ export const routes: Routes = [
     {
         path:'',
         component:HomeComponent,
-        // canActivate:[gaurdForHome]
+        // canActivate:[gaurdForHome],
+    
+        children:[
+            {
+                path:'',
+                redirectTo:'home',
+                pathMatch:'full',
+            },
+            {
+                path:'home',
+                component:MainHomeComponent
+            },
+            {
+                    path:'allrecipes',
+                    component:AllrecipesComponent
+            },
+            {
+                path:'recipe/:id',
+                component:RecipeComponent,
+                
+            },
+            {
+                path:'recipes/:type/:name',
+                component:RecipesComponent
+
+            },
+            {
+                path:'**',
+                component:PnFComponent
+            },
+        ]
     },
+   
     {
         path:'login',
         component:LoginComponent

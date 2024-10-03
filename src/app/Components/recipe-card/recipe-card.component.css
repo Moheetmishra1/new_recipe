@@ -21,6 +21,7 @@ img{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
 
 }
 
@@ -41,3 +42,8 @@ img{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+
+.admin{
+    position: absolute;
+    right: 0px;
+}

@@ -3,6 +3,11 @@
     <div  class="level"  style="color:#cf23b1;">{{recipe().cuisine}}</div>
     <div class="title">{{recipe().title}}</div>
     <div class="level" [ngStyle]="{color:recipe().difficulty==='Easy'?'green':recipe().difficulty==='Difficult'?'red':'blue'}">{{recipe().difficulty}}</div>
-    <div><a [routerLink]="['recipe',recipe().id]">Continue Reading »</a></div>
+    <div><a [routerLink]="['/recipe',recipe().id]">Continue Reading »</a></div>
+
+    <div class="admin">
+        <div (click)="updateRecipe()"><button>update</button></div>
+        <div (click)="deleteRecipe()"><button>delete</button></div>
+    </div>
 </div>
 

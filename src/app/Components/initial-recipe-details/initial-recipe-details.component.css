@@ -1,0 +1,52 @@
+.card{
+    height: 55vh;
+    border-radius: 5px;
+    min-width: 100px;
+    width: 300px;
+    box-shadow: 1px 1px 10px 1px black;
+    /* border: 2px solid green; */
+    background-color: aliceblue;
+    margin: 1em;
+    overflow: hidden;
+    /* display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1.2fr; */
+    box-sizing: border-box;
+
+}
+.card:hover{
+    background-color: rgb(186, 221, 252);
+}
+main{
+    height: 55vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    padding: 0px;
+}
+
+/* .details{
+    border: 1px solid black;
+} */
+img{
+    /* height: 30vh; */
+    height: 36vh;   
+    width: 100%;
+}
+
+main>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px;
+    gap: 2px;
+}
+.reviews{
+    color: rgb(81, 78, 78);
+}
+.title{
+    font-size: 1.5em;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

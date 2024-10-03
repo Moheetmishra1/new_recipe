@@ -1,0 +1,8 @@
+
+<div class="recipeBox">
+@for(recipe of recipes();track recipe.id){
+    <app-initial-recipe-details [details]="{id:recipe.id,rating:recipe.rating,reviewCount:recipe.reviewCount,name:recipe.name,image:recipe.image}" />
+          
+}
+
+</div>
