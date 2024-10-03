@@ -5,7 +5,7 @@ import { Component, inject, OnInit, DestroyRef, computed, signal } from '@angula
 import { NgIf } from '@angular/common';
 import {AgGridAngular} from "ag-grid-angular"
 import { AgGridTagService } from './ag-grid.service';
-import { CartResponseTYPE } from './AllCartsType';
+import { CartResponse } from './AllCartsType';
 
 @Component({
   selector: 'app-ag-tag-table',
@@ -19,7 +19,7 @@ export class AgTagTableComponent implements OnInit {
   isLoading= false
   agGridService= inject(AgGridTagService)
   private destroyRef= inject(DestroyRef)
-  allCarts =signal<CartResponseTYPE[]>([])
+  allCarts =signal<CartResponse[]>([])
  
 
   colum: ColDef[] = [
@@ -46,12 +46,12 @@ export class AgTagTableComponent implements OnInit {
 const subscription = this.agGridService.getAllCarts()
       .subscribe({
         next:(data)=>{
-          let obj = data.map(a=>{ return a
+          let obj = data.carts.map(a=>{
             return {id:a.carts.id,title:a.carts.products.title,price:a.carts.products.price,quantity:a.carts.products.quantity,total:a.total}
           })
           console.log(obj);
           
-          // this.allCarts.set(obj);
+          this.allCarts.set(data);
           console.log(this.allCarts());
           
         },

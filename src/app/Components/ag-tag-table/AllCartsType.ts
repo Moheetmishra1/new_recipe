@@ -19,25 +19,8 @@ export interface Product {
     totalQuantity: number;
   }
   
-  export interface CartResponseTYPE {
-    carts: {
-        id: number;
-        products: {
-            id: number;
-            title: string;
-            price: number;
-            quantity: number;
-            total: number;
-            discountPercentage: number;
-            discountedTotal: number;
-            thumbnail: string;
-          }
-        total: number;
-        discountedTotal: number;
-        userId: number;
-        totalProducts: number;
-        totalQuantity: number;
-      }
+  export interface CartResponse {
+    carts: Cart[];
     total: number;
     skip: number;
     limit: number;
