@@ -4,13 +4,12 @@ import { LoginComponent } from './Components/pages/login/login.component';
 import { PnFComponent } from './Components/pages/pn-f/pn-f.component';
 import { SignUpComponent } from './Components/pages/signup/signup.component';
 import { inject } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { RecipeComponent } from './Components/pages/home/recipe/recipe.component';
 import { MainHomeComponent } from './Components/pages/home/main-home/main-home.component';
 import { RecipesComponent } from './Components/pages/home/recipes/recipes.component';
 import { AllrecipesComponent } from './Components/pages/allrecipes/allrecipes.component';
-import { UpdateRecipeComponent } from './Componenets/pages/update-recipe/update-recipe.component';
-import { AddRecipeComponent } from './Componenets/pages/add-recipe/add-recipe.component';
+import { UpdateRecipeComponent } from './Components/pages/update-recipe/update-recipe.component';
+import { AddRecipeComponent } from './Components/pages/add-recipe/add-recipe.component';
 
 const gaurdForHome:CanActivateFn=(route,segments)=>{
      const router = inject(Router)   
@@ -72,10 +71,8 @@ export const routes: Routes = [
                 component:RecipesComponent
 
             },
-            {
-                path:'**',
-                component:PnFComponent
-            },
+            
+            
         ]
     },
    

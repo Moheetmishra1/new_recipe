@@ -47,3 +47,15 @@ img{
     position: absolute;
     right: 0px;
 }
+
+.update{
+    height: 1em;
+    width: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+.update div{
+    font-size: 0.4em;
+}

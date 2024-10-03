@@ -3,14 +3,14 @@ import { HomeService } from './../pages/homeService';
 import { Component, inject, input, output } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RECIPESTYPE } from '../pages/pages-helper';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'update-recipe-form',
   templateUrl: 'update-recipe.component.html',
   styleUrls: ['update-recipe.component.css'],
   standalone:true,
-  imports:[ReactiveFormsModule],
+  imports:[ReactiveFormsModule,RouterLink],
  
 })
 export class UpdateRecipeFormComponent  {
@@ -40,36 +40,46 @@ export class UpdateRecipeFormComponent  {
     });
 
     ngOnInit(){
+    console.log("enter");
+      
       if(this.dataPass()){
       // const obj = {...this.dataPass()}
-
+        
       this.recipeForm.setValue(this.dataPass())
       }  
+      console.log(this.dataPass);
+      
     }
   
 
   onSubmit(): void {
-    if(this.title() ==='update'){
-    console.log(this.recipeForm?.value);
+    console.log("call1");
+    
+    if(this.title().includes('update')){
+      console.log("enter");
+      
+    console.log(this.recipeForm.value);
     if(this.recipeForm.valid){
-    const obj ={...this.dataPass(),...this.recipeForm.form.value}
+    const obj ={...this.dataPass(),...this.recipeForm.value}
     this.homeService.updateRecipe(obj)
-    // this.hideForm.emit()
     console.log("Updated");
     
     this.router.navigate(['/'])
 
 
-    }}""
+    }}
     else{
+      console.log("call");
+      
       if(this.recipeForm.valid){
+        console.log("add");
+        
         const rand= Math.floor(Math.random()*1000)
-        this.recipeForm.form.value={...this.recipeForm.form.value,id:rand}
-        console.log(this.recipeForm);
+       const obj ={...this.recipeForm.value,id:rand,tags:[this.recipeForm.value.tags]}
+        console.log(obj);
         
-        console.log(this.recipeForm.form.value);
         
-      this.homeService.addRecipe(this.recipeForm.form.value);
+      this.homeService.addRecipe(obj);
     console.log("Added");
 
       this.router.navigate(['/'])

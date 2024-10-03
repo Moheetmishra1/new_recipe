@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { UpdateRecipeFormComponent } from "../../../Components/update-recipe/update-recipe.component";
+import { Component, OnInit } from '@angular/core';
+import { UpdateRecipeFormComponent } from '../../update-recipe/update-recipe.component';
 
 @Component({
   selector: 'app-add-recipe',

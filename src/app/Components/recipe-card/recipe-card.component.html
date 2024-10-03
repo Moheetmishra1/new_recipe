@@ -6,7 +6,7 @@
     <div><a [routerLink]="['/recipe',recipe().id]">Continue Reading »</a></div>
 
     <div class="admin">
-        <div (click)="updateRecipe()"><button>update</button></div>
+       <a [routerLink]="['/update',recipe().id]"> <div ><button class="update"><div>update</div> </button></div></a>
         <div (click)="deleteRecipe()"><button>delete</button></div>
     </div>
 </div>

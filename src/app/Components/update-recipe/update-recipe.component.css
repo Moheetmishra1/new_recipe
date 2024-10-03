@@ -40,6 +40,16 @@
     justify-content: center;
     padding-bottom:2em ;
 }
+.both{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.cancel{
+  padding:  2px 1em;
+  border: none;
+  border-radius: 6px;
+}
   
   /* Responsive design */
   @media (max-width: 768px) {

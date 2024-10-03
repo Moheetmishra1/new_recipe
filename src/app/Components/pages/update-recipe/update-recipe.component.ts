@@ -14,15 +14,17 @@ export class UpdateRecipeComponent {
   isLoading= false
   private homeService = inject(HomeService)
   private destroyRef= inject(DestroyRef);
-  recipe=this.homeService.recipe();
+  recipe=this.homeService.recipe;
 
   ngOnInit(){
 this.isLoading=true;
 
     const subscription = this.homeService.getSingleRecipe(this.id())
           .subscribe({
+            next:(data)=>this.recipe,
+            
             error:(err)=>console.log(err),
-            complete:()=>this.isLoading=true
+            complete:()=>this.isLoading=false
           });
           this.destroyRef.onDestroy(()=>subscription.unsubscribe())
   }

@@ -3,7 +3,7 @@
 <div class="imageBox">
         <img [src]="details().image" alt="">
     <nav>
-        <button class="update" (click)="update()">Update</button>
+        <a [routerLink]="['/update',details().id]"><button class="update" >Update</button></a>
         <button class="delete" (click)="deleteRecipe()">Delete</button>
     </nav>
     </div>

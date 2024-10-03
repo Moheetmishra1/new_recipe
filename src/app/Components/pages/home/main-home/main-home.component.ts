@@ -11,7 +11,6 @@ import { TagsTableComponent } from "../../../tags-table/tags-table.component";
 import { RouterLink } from '@angular/router';
 import { NavigateWrapperComponent } from "../../../navigate-wrapper/navigate-wrapper.component";
 
-import { UpdateRecipeFormComponent } from '../../../update-recipe/update-recipe.component';
 
 
 @Component({
@@ -19,7 +18,7 @@ import { UpdateRecipeFormComponent } from '../../../update-recipe/update-recipe.
   standalone: true,
   imports: [HomeNavbarComponent, CategoryImageComponent, NgIf, DishContainerComponent, SearchAndAllComponent,
      RecipeCardComponent, AgTagTableComponent, TagsTableComponent, RouterLink,
-      NavigateWrapperComponent,UpdateRecipeFormComponent],
+      NavigateWrapperComponent],
   templateUrl: './main-home.component.html',
   styleUrl: './main-home.component.css'
 })
@@ -38,7 +37,10 @@ export class MainHomeComponent implements OnInit {
 
 ngOnInit(): void {
   this.isLoading=true
+  console.log(this.recipes());
+  
   if(!this.homeService.recipes().length){
+    
  const subscription =  this.homeService.getAllRecipes()
       .subscribe({
         next:()=>{this.recipesByCuisine=this.homeService.recipesByCuisine();
@@ -49,6 +51,7 @@ ngOnInit(): void {
       })
       this.destroyRef.onDestroy(()=>subscription.unsubscribe())
     }{
+      // this.recipes
       this.recipesByCuisine=this.homeService.recipesByCuisine();
       this.recipesByTag=Object.entries(this.homeService.recipesByTag())  ;
       this.isLoading=false;

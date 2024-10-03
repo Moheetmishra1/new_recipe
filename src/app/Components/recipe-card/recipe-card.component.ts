@@ -23,16 +23,9 @@ interface CardRecipeType {
 export class RecipeCardComponent {
   recipe=input.required<CardRecipeType>()
   homeService= inject(HomeService)
-  openForm= output<number>()
-  updateRecipe(){
-    this.openForm.emit(this.recipe().id)
-    console.log("enter to recipe item");
-    
-  }
+  
 
-  forForm(){
-    this.openForm.emit(this.recipe().id)
-  }
+
 
   deleteRecipe(){
     this.homeService.deleteRecipe(this.recipe().id)

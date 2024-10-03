@@ -64,7 +64,9 @@
         <label for="userId">User  ID:</label>
         <input type="number" formControlName="userId" id="userId" class="form-control">
       </div>
-      <div class="button">
+      
+      <div class="button both" >
+        <a [routerLink]="['/home']"><button type="submit"  class="cancel">Cancel</button></a>
             <button type="submit" class="btn btn-primary">Update Recipe</button>
     </div>
     </form>
