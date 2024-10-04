@@ -2,7 +2,8 @@ import { images } from './../../assets/login-images/images';
 import { inject, Injectable, signal } from "@angular/core";
 import { RECIPESTYPE } from "./pages-helper";
 import { HttpClient } from "@angular/common/http";
-import { map, tap } from "rxjs";
+import { debounceTime, map, tap } from "rxjs";
+import { RECIPEALLTYPE } from '../search-and-all/searchAll.model';
 
 @Injectable({
     providedIn:'root',
@@ -42,7 +43,6 @@ export class HomeService{
             map((data)=>data?.recipes ),
             tap({
                 next:(recipesData)=>{
-                    console.log(recipesData);
                     
                     this.recipes.set(recipesData)
                 }           })        )   
@@ -50,11 +50,9 @@ export class HomeService{
 
     recipesByTag(){
         if(!this.recipesTags.length){
-            console.log(this.recipesTags);
             
         const dishs:any={};
         const obj = this.recipes().reduce((a,b)=>{
-            console.log(b);
             
             b.tags.forEach(typeDish=>{
                 if(a[typeDish]){
@@ -72,15 +70,22 @@ export class HomeService{
     return this.recipesTags
     }
     addRecipe(recipe:any){
-        console.log(this.recipes());
 
         this.recipes.update(data=>[...data,recipe])
-        console.log(this.recipes());
         
     }
 
+    
+  searchRecipe(search:string){
+    return  this.httpClient.get<RECIPEALLTYPE>(`https://dummyjson.com/recipes/search?q=${search}`).pipe(debounceTime(400),
+    tap({
+        next:(val)=>this.recipes.set(val.recipes)
+    }))
+
+
+  }
+
     updateRecipe(recipe:any){
-        console.log(recipe.id, "and " ,recipe);
 
         this.recipes.update((data)=>data.map(a=>{
             if(a.id=== recipe.id){

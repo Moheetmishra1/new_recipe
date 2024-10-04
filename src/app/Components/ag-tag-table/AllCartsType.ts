@@ -1,4 +1,4 @@
-export interface Product {
+export interface PRODUCTTYPE {
     id: number;
     title: string;
     price: number;
@@ -9,9 +9,9 @@ export interface Product {
     thumbnail: string;
   }
   
-  export interface Cart {
+  export interface CARTTYPE {
     id: number;
-    products: Product[];
+    products: PRODUCTTYPE[];
     total: number;
     discountedTotal: number;
     userId: number;
@@ -19,8 +19,8 @@ export interface Product {
     totalQuantity: number;
   }
   
-  export interface CartResponse {
-    carts: Cart[];
+  export interface CartResponseTYPE {
+    carts: CARTTYPE[];
     total: number;
     skip: number;
     limit: number;

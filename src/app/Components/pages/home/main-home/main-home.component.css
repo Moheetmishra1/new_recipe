@@ -31,7 +31,7 @@
 
 .dishContainer{
     width: 80vw;
-    height: 35vh;
+    height: 55vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -73,4 +73,9 @@
     z-index: 2 ;
     margin: 100px auto;
     background-color:#000000e6;
+}
+
+.dishContainer-down{
+    box-shadow:1px -4px 16px 0px black;
+    margin-top: -4vh;
 }

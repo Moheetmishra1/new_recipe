@@ -2,12 +2,12 @@
 <main>
 <div class="imageBox">
         <img [src]="details().image" alt="">
-    <nav>
+    <nav *appIsAdmin>
         <a [routerLink]="['/update',details().id]"><button class="update" >Update</button></a>
         <button class="delete" (click)="deleteRecipe()">Delete</button>
     </nav>
     </div>
-    <div class="details">
+    <div class="details" >
         <div class="star">{{star()}}</div>
         <div class="reviews">{{details().reviewCount}} REVIEWS/{{details().rating}} AVERAGE</div>
         <div class="title">{{details().name}}</div>

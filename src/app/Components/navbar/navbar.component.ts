@@ -14,14 +14,13 @@ import { loginUser, logoutUser } from '../../Store/login.action';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent implements OnInit {
-  isLogin$  =signal<Observable<USERTYPE | null>|undefined>(undefined)
+export class NavbarComponent  {
+  isLogin$  =signal<USERTYPE | null>(null)
   constructor(private store:Store<{login:USERTYPE|null}>){
-    this.isLogin$.set(this.store.select('login'))
+   this.store.select('login').subscribe((login)=>this.isLogin$.set(login))
   }
-  ngOnInit() {
-    
-  }
+
+  
   logoutUSer(){
     this.store.dispatch(logoutUser())
   }

@@ -1,11 +1,10 @@
 // import { CartsService } from './carts.service';
-import { Component, DestroyRef, inject, input, signal } from '@angular/core';
+import { Component, DestroyRef, inject, input } from '@angular/core';
 import { CartsHeaderComponent } from './carts-header/carts-header.component';
 import { CartsNotificationComponent } from './carts-notification/carts-notification.component';
 import { CartsTableComponent } from './carts-table/carts-table.component';
 import { CartsItemComponent } from './carts-item/carts-item.component';
 import { NgFor } from '@angular/common';
-import { CARTS } from './carts.model';
 import { CartsTotalComponent } from "./carts-total/carts-total.component";
 import { CartsService } from './carts.service';
 

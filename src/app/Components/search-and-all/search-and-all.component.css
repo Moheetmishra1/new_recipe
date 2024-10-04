@@ -50,3 +50,9 @@ font-size: 1.5em;
 .search{
     font-size: 2em;
 }
+/* 
+.container{
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+} */

@@ -17,7 +17,7 @@
     margin: 0 auto;
 }
 
-p{
+button{
     font-weight: 500;
     /* margin: 0 auto; */
     background-color:#edb654;
@@ -32,4 +32,8 @@ img{
 
     height: 100%;
     width: 100%;
+}
+
+img:hover{
+    background-color: rgb(129, 21, 21);
 }

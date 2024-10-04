@@ -90,10 +90,15 @@
     font-size: 2em;
 }
 .login{
-    border-radius:  2px;
-    background-color: blueviolet;
+    padding: 0.1em;
+    background-color: rgb(146, 62, 226);
     border-radius: 10px;
     color: aliceblue;
-    font-size: 1.4em;
+    font-size: 1.6em;
     font-weight: 500;
+}
+
+.login:hover{
+    background-color: rgba(137, 43, 226, 0.727);
+   
 }

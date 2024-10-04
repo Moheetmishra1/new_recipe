@@ -68,7 +68,7 @@ export interface CARTS {
 
 export interface USER    {
     id:number,
-    email:'John@gmail.com',
+    email:string,
     username:string,
     password:string,
     name:{

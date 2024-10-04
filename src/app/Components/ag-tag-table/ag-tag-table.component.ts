@@ -1,11 +1,11 @@
-import { ColDef } from 'ag-grid-community';
+import { ColDef, GridApi,GridReadyEvent } from 'ag-grid-community';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-quartz.css';
 import { Component, inject, OnInit, DestroyRef, computed, signal } from '@angular/core';
 import { NgIf } from '@angular/common';
 import {AgGridAngular} from "ag-grid-angular"
 import { AgGridTagService } from './ag-grid.service';
-import { CartResponse } from './AllCartsType';
+import { ActionCellRendererComponent } from './action-cell-renderer/action-cell-renderer.component';
 
 @Component({
   selector: 'app-ag-tag-table',
@@ -19,42 +19,35 @@ export class AgTagTableComponent implements OnInit {
   isLoading= false
   agGridService= inject(AgGridTagService)
   private destroyRef= inject(DestroyRef)
-  allCarts =signal<CartResponse[]>([])
- 
+  allCarts =this.agGridService.allCarts
+  private gridApi !:GridApi<any>
 
-  colum: ColDef[] = [
-    { field: 'id', headerName: 'ID' },
-    { field: 'title', headerName: 'Title' },
-    { field: 'price', headerName: 'Price' },
-    { field: 'quantity', headerName: 'Quantity' },
-    { field: 'total', headerName: 'Total' },
-    // {
-    //   field: 'actions',
-    //   headerName: 'Actions',
-    //   cellRenderer: (params) => {
-    //     return `
-    //       <button class="btn btn-primary" (click)="updateProduct(${params.data.id})">Update</button>
-    //       <button class="btn btn-danger" (click)="deleteProduct(${params.data.id})">Delete</button>
-    //       <button class="btn btn-info" (click)="viewProduct(${params.data.id})">View</button>
-    //     `;
-    //   },
-    // },
+  filterRows= computed(()=>this.agGridService.allCarts().map(a=>{return { id:a.id,userId:a.userId,discountedTotal:a.discountedTotal,totalProducts:a.totalProducts,totalQuantity:a.totalQuantity}}))
+ 
+  rowSelection: 'single' | 'multiple'='multiple'
+  columnDefs: ColDef[] = [
+    { field: 'id', headerName: 'ID',checkboxSelection:true,headerCheckboxSelection:true },
+    { field: 'userId', headerName: 'User-Id',filter:'agTextColumnFilter' },
+    { field: 'discountedTotal', headerName: 'DiscountTotal' },
+    { field: 'totalProducts', headerName: 'TotalQuantity',editable:true },
+    { field: 'totalQuantity', headerName: 'TotalQuantity' },
+   
+    {
+      field: 'actions',
+      headerName: 'Actions',
+      cellRenderer: ActionCellRendererComponent,
+    },
   ];
 
+
+  defaultColumnDef= {
+    flex:1 ,
+    minWidth:100
+  }
   ngOnInit(){
     this.isLoading= true;
 const subscription = this.agGridService.getAllCarts()
-      .subscribe({
-        next:(data)=>{
-          let obj = data.carts.map(a=>{
-            return {id:a.carts.id,title:a.carts.products.title,price:a.carts.products.price,quantity:a.carts.products.quantity,total:a.total}
-          })
-          console.log(obj);
-          
-          this.allCarts.set(data);
-          console.log(this.allCarts());
-          
-        },
+      .subscribe({       
         error:(err)=>{
           console.log("Error is ",err);          
         }
@@ -66,5 +59,17 @@ const subscription = this.agGridService.getAllCarts()
       this.destroyRef.onDestroy(()=>subscription.unsubscribe())
   }
 
+  onGridReady(event:GridReadyEvent<any>){
+    this.gridApi=event.api
+  }
 
+  onClick(){
+    this.gridApi.exportDataAsCsv();
+  }
+
+  deleteProduct(e:any){
+    console.log(e);
+    
+
+  }
 }

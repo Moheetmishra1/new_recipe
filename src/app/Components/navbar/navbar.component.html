@@ -1,20 +1,12 @@
-@if(isLogin$() |async; as data){
+@if(!isLogin$()){
     <div class="navbar">
         <app-logo />
         <div class="menu">
-        @if(isLogin$() |async; as data)
-        {
-    
-            <!-- <a  routerLink=""  routerLinkActive="selected">Home</a> -->
-    
-    
-        }@else{
+      
             <a routerLink="login"  routerLinkActive="selected">Login</a> 
             <a routerLink="signup"  routerLinkActive="selected">Signup</a>
     
-        }
-    </div>
-    </div>
-}@else{
     
+    </div>
+    </div>
 }

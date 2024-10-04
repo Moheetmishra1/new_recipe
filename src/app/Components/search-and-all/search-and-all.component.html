@@ -3,7 +3,7 @@
 <div class="search">
     🔍
 </div>
-<input type="text" name="" id="">
+<input type="text" name="" id=""  placeholder="Search recipe by name" #search (keyup)="searchRecipe(search.value)">
 </div>
 </div>
 
@@ -11,3 +11,9 @@
     <div>𝑜𝓇</div>
    <a [routerLink]="['/allrecipes']"> <button>+View All Recipes</button></a>
 </div>
+
+<!-- <div class="container">
+    @for(recipe of recipes();track recipe.id){
+        <app-initial-recipe-details [details]="{id:recipe.id ,rating:recipe.rating ,reviewCount:recipe.reviewCount ,name:recipe.name  ,image:recipe.image }" />
+    }
+</div> -->

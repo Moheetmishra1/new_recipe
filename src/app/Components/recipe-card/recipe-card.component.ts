@@ -2,6 +2,7 @@ import { NgStyle } from '@angular/common';
 import { Component, inject, input, output } from '@angular/core';
 import {   RouterLink } from '@angular/router';
 import { HomeService } from '../pages/homeService';
+import { IsAdminDirective } from '../../is-admin.directive';
 interface CardRecipeType {
   title:string,
   image:string,
@@ -16,7 +17,7 @@ interface CardRecipeType {
 @Component({
   selector: 'app-recipe-card',
   standalone: true,
-  imports: [RouterLink,NgStyle],
+  imports: [RouterLink,NgStyle,IsAdminDirective],
   templateUrl: './recipe-card.component.html',
   styleUrl: './recipe-card.component.css'
 })

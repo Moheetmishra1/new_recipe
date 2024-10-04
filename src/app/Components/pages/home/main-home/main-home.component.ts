@@ -9,6 +9,7 @@ import { HomeNavbarComponent } from '../../../../home-navbar/home-navbar.compone
 import { TagsTableComponent } from "../../../tags-table/tags-table.component";
 import { RouterLink } from '@angular/router';
 import { NavigateWrapperComponent } from "../../../navigate-wrapper/navigate-wrapper.component";
+import { IsAdminDirective } from '../../../../is-admin.directive';
 
 
 
@@ -17,7 +18,7 @@ import { NavigateWrapperComponent } from "../../../navigate-wrapper/navigate-wra
   standalone: true,
   imports: [HomeNavbarComponent, CategoryImageComponent, NgIf, DishContainerComponent, SearchAndAllComponent,
      RecipeCardComponent, TagsTableComponent, RouterLink,
-      NavigateWrapperComponent],
+      NavigateWrapperComponent,IsAdminDirective],
   templateUrl: './main-home.component.html',
   styleUrl: './main-home.component.css'
 })

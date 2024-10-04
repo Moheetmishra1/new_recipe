@@ -7,11 +7,12 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { USERTYPE } from '../shared/UserType';
 import { logoutUser } from '../Store/login.action';
+import { IsAdminDirective } from '../is-admin.directive';
 
 @Component({
   selector: 'app-home-navbar',
   standalone: true,
-  imports: [LogoComponent,RouterLink,NgIf,AsyncPipe],
+  imports: [LogoComponent,RouterLink,NgIf,AsyncPipe,IsAdminDirective],
   templateUrl: './home-navbar.component.html',
   styleUrl: './home-navbar.component.css'
 })

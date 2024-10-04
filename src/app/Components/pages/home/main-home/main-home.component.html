@@ -10,7 +10,7 @@
 
 <div class="category-item">
 @for(item of recipesByCuisine; track item.image){
-   <app-category-image [obj]="item" />
+   <app-category-image [obj]="item"  />
     }
 </div>
 
@@ -22,8 +22,9 @@
 }
 </div>
 
-<app-search-and-all />
+<app-search-and-all class="dishContainer-down" />
 
+@defer ( on viewport) {
 <div class="recipesCard">
     <div>
 @for(item of recipes().slice(0,paginatedRecipe);track item.id){
@@ -36,10 +37,13 @@
     difficulty:item.difficulty
   }" (openForm)="openForm(item.id)" />
 }
-</div >
+    </div >
+        <app-tags-table />
+    </div>
 
-    <app-tags-table />
-</div>
+} @placeholder {
+    <p>Loading.... </p>
+}
 
 <div class="viewMore">
     <button  (click)="increaseRecipe()">View More</button>
