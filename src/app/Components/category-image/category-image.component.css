@@ -16,6 +16,15 @@
     
     margin: 0 auto;
 }
+.above{
+    position: absolute;
+    height: 450px;
+    width: 350px;
+    background-color:transparent;
+}
+.above:hover{
+    background-color: rgba(255, 255, 255, 0.525);
+}
 
 button{
     font-weight: 500;

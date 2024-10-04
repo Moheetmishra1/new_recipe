@@ -3,6 +3,7 @@
 :host{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    /* grid-template-rows: ; */
     align-items: center;
     padding: 2em;
     gap: 2em;

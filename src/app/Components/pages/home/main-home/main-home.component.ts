@@ -23,7 +23,6 @@ import { IsAdminDirective } from '../../../../is-admin.directive';
   styleUrl: './main-home.component.css'
 })
 export class MainHomeComponent implements OnInit {
-
   isLoading=false;
   private homeService= inject(HomeService)
   recipes =this.homeService.recipes;
@@ -34,6 +33,8 @@ export class MainHomeComponent implements OnInit {
  displayForm = false
  id= signal<number>(0)
  dataPass= computed(()=>this.recipes().find(a=>a.id=== this.id()))
+//  viewMore =this.recipes().length>this.paginatedRecipe
+//  viewLess =this.recipes().length>0
 
 ngOnInit(): void {
   this.isLoading=true
