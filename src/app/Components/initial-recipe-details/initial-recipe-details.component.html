@@ -3,8 +3,8 @@
 <div class="imageBox">
         <img [src]="details().image" alt="">
     <nav *appIsAdmin>
-        <a [routerLink]="['/update',details().id]"><button class="update" >Update</button></a>
-        <button class="delete" (click)="deleteRecipe()">Delete</button>
+        <a [routerLink]="['/update',details().id]"><button class="update" ><div>Update</div></button></a>
+        <button class="delete" (click)="deleteRecipe()"><div>Delete</div></button>
     </nav>
     </div>
     <div class="details" >

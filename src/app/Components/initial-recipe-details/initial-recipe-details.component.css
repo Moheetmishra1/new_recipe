@@ -68,6 +68,7 @@ nav{
     align-items: center;
     justify-content: space-evenly;
     background-color: rgba(107, 104, 104, 0.755);
+
 }
 
 button{
@@ -77,6 +78,11 @@ button{
     padding: 2px 5px;
     border-radius: 2px;
 
+}
+button>div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .update{
@@ -93,4 +99,7 @@ button:hover{
 a{
     height: 2em;
     width: 2em;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }

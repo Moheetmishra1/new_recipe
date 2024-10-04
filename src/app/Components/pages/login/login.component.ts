@@ -48,10 +48,10 @@ export class LoginComponent {
     }
 
     const subscription = this.httpClient.post<USERTYPE>('https://dummyjson.com/auth/login',{
-                username: 'michaelw',
-                password:'michaelwpass',
-                // username:formData.form.value.email,
-                // password:formData.form.value.password,
+                // username: 'michaelw',
+                // password:'michaelwpass',
+                username:formData.form.value.email,
+                password:formData.form.value.password,
                 expiresInMins:30
         })
         .subscribe({
