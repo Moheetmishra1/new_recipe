@@ -1,26 +1,27 @@
 
-<<<<<<<<<<<<<<<<<         >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+"<<<<<<<<<<<<<<<<< >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 # Points
->> Only Admin Can perform Below Admin Account- 
- # username: 'michaelw',
- # password:'michaelwpass',
+>> Only an admin can perform the following actions with an admin account:
+# username: 'michaelw',
+# password: 'michaelwpass',
 
->>without  Authentication (Normal user and Admin ) can't able to go different routes/pages.
->>Delete,update, add option only visible for admin.Only user can only see in recipes.
->>  Use NgRx to store the data of user .
->>filter only 'cuisine' & releted images in array from the all recipesies having nested images and each image property sotre multi image .Store these things in array to use on display caregory by card.
->> # filter -- get all array of tags and there array of image store in nested object of arrays.
->> # Custom Directive to display the Curd's buttons,  when admin will login.
->>#Fall-back message before element load on UI.
->> # Lazy-loading--  Optimise the initial application loading by using Lazy-loading
->> # Per-page lazy-loading- In sme page i use lazy-loading when element is loading on ui.
->>Use CanMatch ,CamActive .
->>create custom functioin which work as pagination.
->># NgStyle directive to display different text-color based difficulty level.
->> # Component-wrapper -use the to wrap thedifferent component to add some same behavious.
->># Condition rendering-- Based on some condition to display different element on ui.
->> # Prevent un-neccessery calling function or api if data is alreay prevent .When use Service and come back to same route data are present to , i prevent it to reload the data so that my updated dat is still present.
->>After logout sessionStorage will clear so that user again need to login.and Token 
->> 
 
+# Without authentication, normal users and admins cannot access different routes/pages.
+#  Delete, update, and add options are only visible to admins. Only users can view recipes.
+# I use NgRx to store user data. We filter only 'cuisine' and related images in an array from all recipes having nested images, and each image property stores multiple images. We store these in an array to use on display category by card.
+
+# Filter: Get all arrays of tags and their arrays of images stored in nested objects of arrays.
+# Custom Directive: Display CRUD buttons when an admin logs in.
+# Fall-back message: Display a message before elements load on the UI.
+# Lazy-loading: Optimize initial application loading by using lazy-loading.
+Per-page lazy-loading: We use lazy-loading on some pages when elements are loading on the UI.
+We use CanMatch and CanActivate. We create a custom function that works as pagination.
+
+# NgStyle directive: Display different text colors based on difficulty level.
+# Component wrapper: We use this to wrap different components and add similar behavior.
+# Conditional rendering: We display different elements on the UI based on certain conditions.
+# Prevent unnecessary function or API calls: We prevent reloading data when returning to the same route, so that our updated data is still present.
+After logging out, sessionStorage will clear, so users need to log in again, and the token will be cleared as well."
 
