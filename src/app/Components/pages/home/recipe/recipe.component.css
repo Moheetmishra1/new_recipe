@@ -374,3 +374,7 @@ box-shadow: 25px 10px 70px -5px rgba(0,0,0,0.3);
 .cont_modal_active > .cont_photo  > .cont_detalles{
   bottom: 0px;
 }
+
+a>h4{
+  font-size: 1em;
+}
