@@ -51,9 +51,9 @@
               <button (click)="updateCart('increase')"  >+</button>
              </div>
              </td>
-        <td _ngcontent-ng-c525090438="" class="d-flex flex-column">   {{product.price}}</td>
+        <td _ngcontent-ng-c525090438="" class="d-flex flex-column">   {{product.price |currency :"₹ "}}</td>
         <td _ngcontent-ng-c525090438="" class="font-weight-bold">
-          {{(product.quantity*product.price).toFixed(2)}}
+          {{(product.quantity*product.price).toFixed(2) |currency :"₹ "}}
          
         </td >
         <td style="border: none;" >

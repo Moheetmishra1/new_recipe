@@ -32,5 +32,8 @@ export class AllrecipesComponent {
           this.destroyRef.onDestroy(()=>subscription.unsubscribe())
   }
 
+  moreData(){
+    
+  }
 
 }

@@ -4,5 +4,6 @@
     <app-initial-recipe-details [details]="{id:recipe.id,rating:recipe.rating,reviewCount:recipe.reviewCount,name:recipe.name,image:recipe.image}" />
           
 }
-
+<div><button (click)="moreData()">View More ⇊</button></div>
+<p>{{recipes().length}}</p>
 </div>

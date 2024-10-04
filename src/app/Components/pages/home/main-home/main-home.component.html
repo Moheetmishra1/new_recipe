@@ -10,13 +10,13 @@
 
 <div class="category-item">
 @for(item of recipesByCuisine; track item.image){
-   <app-category-image [obj]="item"  />
+   <app-category-image [obj]="item"  class="threeD" />
     }
 </div>
 
  <div class="dishContainer">
 @for(item of recipesByTag;track item[0]){
-    <app-navigate-wrapper [url]="'/recipes/tag/'+item[0]" >     
+    <app-navigate-wrapper [url]="'/recipes/tag/'+item[0]"  >     
             <app-dish-container [title]="item[0]" [arr]="item[1]" />
     </app-navigate-wrapper>
 }

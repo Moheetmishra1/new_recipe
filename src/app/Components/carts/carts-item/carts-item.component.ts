@@ -1,11 +1,12 @@
 import { Component, DestroyRef, inject, Input } from '@angular/core';
 import { CartProductType, CARTS } from '../carts.model';
 import { CartsService } from '../carts.service';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-carts-item',
   standalone: true,
-  imports: [],
+  imports: [CurrencyPipe],
   templateUrl: './carts-item.component.html',
   styleUrl: './carts-item.component.css'
 })

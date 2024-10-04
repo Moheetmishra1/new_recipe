@@ -81,8 +81,17 @@ export class HomeService{
     tap({
         next:(val)=>this.recipes.set(val.recipes)
     }))
+  }
 
-
+  moreRecipesData(){
+    return this.httpClient.get<{recipes:RECIPESTYPE[],}>(`https://dummyjson.com/recipes?limit=40&skip=${this.recipes().length}&select=name,image`).pipe(
+        map((data)=>data?.recipes ),
+        tap({
+            next:(data)=>{
+                this.recipes.update((val)=>[...data])
+            }
+        })
+    )
   }
 
     updateRecipe(recipe:any){
