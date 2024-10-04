@@ -19,7 +19,7 @@ error=" "
         firstname: new FormControl('', [Validators.required,Validators.pattern('[a-zA-Z]+')]),
         lastname: new FormControl('', [Validators.required,Validators.pattern('[a-zA-Z]+')])
       }),
-      gender:new FormControl('', 
+      gender:new FormControl('male', 
         [Validators.required]
       ),
       
@@ -27,10 +27,37 @@ error=" "
     });
 
   onSubmit(): void {
-    if(this.signUpForm.value)
+    this.error=''
+   
+    
+    let {email,username,password,name,gender,image}= this.signUpForm.value
+    if(!(email || username || name?.firstname || name?.lastname ||  password || gender || image)){
+      this.error="All field are required."
+      return;
+    }
+    if(this.signUpForm.controls.username.invalid){
+      this.error='UserName is invalid.(length 6-15)';
+      return;
+    }
+    if(this.signUpForm.controls.password.invalid){
+      this.error='PAssword is invalid.(length must be in between 6-15).';
+      return;
+    }
+    if(this.signUpForm.controls.name.invalid){
+      this.error='Name is invalid';
+      return;
+    }
+    if(this.signUpForm.controls.gender.invalid){
+      this.error='Gender is invalid';
+      return;
+    }
+   
+ 
     if(this.signUpForm.invalid){
       this.error="Form is invalid.Please check all field."
+    }else{
+      console.log(this.signUpForm.valid);
+      
     }
-    console.log(this.signUpForm?.value);
   }
 }

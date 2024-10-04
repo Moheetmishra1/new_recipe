@@ -18,7 +18,6 @@ username= 'michaelw';
 password="michaelwpass"
   ngOnInit(){
     const subscription = this.store.select('login').subscribe((val)=>{
-      console.log("Enter");
       
       if(val){
         if(val.username === 'michaelw'){          

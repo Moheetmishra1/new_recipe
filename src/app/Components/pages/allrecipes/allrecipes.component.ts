@@ -3,11 +3,12 @@ import { RecipeService } from '../home/recipe/recipe.service';
 import { RecipesService } from '../home/recipes/recipes.service';
 import { AllRecipesService } from './allRecipes.service';
 import { InitialRecipeDetailsComponent } from "../../initial-recipe-details/initial-recipe-details.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-allrecipes',
   standalone: true,
-  imports: [InitialRecipeDetailsComponent],
+  imports: [InitialRecipeDetailsComponent,RouterLink],
   templateUrl: './allrecipes.component.html',
   styleUrl: './allrecipes.component.css'
 })

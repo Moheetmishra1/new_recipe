@@ -77,9 +77,12 @@ export class HomeService{
 
     
   searchRecipe(search:string){
-    return  this.httpClient.get<RECIPEALLTYPE>(`https://dummyjson.com/recipes/search?q=${search}`).pipe(debounceTime(400),
+    return  this.httpClient.get<RECIPEALLTYPE>(`https://dummyjson.com/recipes/search?q=${search}`).pipe(debounceTime(2000),
     tap({
-        next:(val)=>this.recipes.set(val.recipes)
+        next:(val)=>{
+            this.recipes.set(val.recipes);
+
+        }
     }))
   }
 

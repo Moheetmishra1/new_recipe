@@ -69,18 +69,14 @@ export class UpdateRecipeFormComponent  {
 
     }}
     else{
-      console.log("call");
       
       if(this.recipeForm.valid){
-        console.log("add");
         
-        const rand= Math.floor(Math.random()*1000)
-       const obj ={...this.recipeForm.value,id:rand,tags:[this.recipeForm.value.tags]}
-        console.log(obj);
+        const rands= Math.floor(Math.random()*1000)
+       const obj ={...this.recipeForm.value,id:rands,tags:[this.recipeForm.value.tags]}
         
         
       this.homeService.addRecipe(obj);
-    console.log("Added");
 
       this.router.navigate(['/'])
       }

@@ -28,6 +28,11 @@ export class SearchAndAllComponent {
   searchRecipe(search:string){
   this.homeService.searchRecipe(search)
    .subscribe({
+    next:(data)=>{console.log("enter")
+    //  console.log(this.homeService.recipes());
+      
+    },
+    
     error:(err)=>{
       console.log(err);
       

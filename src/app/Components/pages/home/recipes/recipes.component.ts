@@ -3,11 +3,12 @@ import { RecipesService } from './recipes.service';
 import { RECIPESTYPE } from '../../pages-helper';
 import { InitialRecipeDetailsComponent } from '../../../initial-recipe-details/initial-recipe-details.component';
 import { NavigateWrapperComponent } from '../../../navigate-wrapper/navigate-wrapper.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-recipes',
   standalone: true,
-  imports: [InitialRecipeDetailsComponent,NavigateWrapperComponent],
+  imports: [InitialRecipeDetailsComponent,NavigateWrapperComponent,RouterLink],
   templateUrl: './recipes.component.html',
   styleUrl: './recipes.component.css'
 })
